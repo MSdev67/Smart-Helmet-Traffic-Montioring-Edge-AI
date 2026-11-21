@@ -58,16 +58,19 @@ def detect_frame(frame, confidence_threshold=CONFIDENCE_THRESHOLD):
             x1, y1, x2, y2 = map(int, box.xyxy[0])
 
             is_safe = "helmet" in class_name and "without" not in class_name
+            is_head = class_name in {"head", "head without helmet", "no helmet", "without helmet"}
             if is_safe:
                 with_helmet += 1
                 color = (42, 199, 130)
                 label = f"Helmet {confidence:.0%}"
                 status = "safe"
-            else:
+            elif is_head:
                 without_helmet += 1
                 color = (44, 96, 255)
                 label = f"No helmet {confidence:.0%}"
                 status = "violation"
+            else:
+                continue
 
             detections.append({
                 "status": status,

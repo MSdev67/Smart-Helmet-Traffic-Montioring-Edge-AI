@@ -41,6 +41,8 @@ pip install -r requirements.txt
 ### 3. Add the YOLO model
 
 Place your trained helmet model at `models/best.pt`, or set `HELMET_MODEL_PATH` to another model file.
+The repository includes a YOLOv8 helmet model with `head`, `helmet`, and `person` classes.
+`head` detections are reported as no-helmet violations and `helmet` detections are reported as safe.
 
 ### 4. Run the dashboard
 streamlit run dashboard.py

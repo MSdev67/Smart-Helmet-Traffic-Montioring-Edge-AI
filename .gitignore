@@ -15,8 +15,7 @@ __pycache__/
 # Database
 data/violations.db
 
-# Model weights 
-models/
+# Local model files are managed explicitly
 
 # Reports
 reports/
